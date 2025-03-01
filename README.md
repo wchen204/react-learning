@@ -4,19 +4,20 @@ This repository tracks my learning progress as I take the course **React - The C
 
 ## Courses
 - **React - The Complete Guide 2025 (incl. Next.js, Redux)**
-    - Focus on core React concepts, Next.js for server-side rendering, and Redux for state management.
+  - Focus on core React concepts, Next.js for server-side rendering, and Redux for state management.
 
 ## Current Learning Topics
-- **Building Custom React Hooks**: Currently learning how to create custom hooks in React to enhance component logic and reuse it across different components.
+- **Working with Forms & User Input**: Currently learning how to handle forms and user input in React, including controlled and uncontrolled components, form submissions, validation, and managing form state.
 
 ## Projects
 - No projects added yet. This section will be updated as I build mini-projects and practical applications throughout the course.
 
 ## Milestones
 - **Completed**: React basics — Components, Props, State, and Lifecycle
-- **Currently learning**: **Building Custom React Hooks**
+- **Completed**: Building Custom React Hooks
+- **Currently learning**: Working with Forms & User Input
 
 ## Next Steps
-- Continue with custom hooks section and build small examples.
+- Continue with the forms and user input section and build small examples.
 - Start learning Redux and its integration with React.
 - Explore Next.js for full-stack development with React.
