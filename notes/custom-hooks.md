@@ -1,4 +1,3 @@
-```markdown
 # Custom Hooks in React
 
 ## What are Custom Hooks?
