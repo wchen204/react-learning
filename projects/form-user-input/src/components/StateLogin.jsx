@@ -1,18 +1,24 @@
-import {useRef} from "react";
+import {useState} from "react";
 
 export default function Login() {
-    // create a reference object.
-    const email = useRef();
-    const password = useRef();
+
+    const [enteredValues, setEnteredValues] = useState({
+        email: '',
+        password: ''
+    });
 
     function handleSubmit(event) {
         event.preventDefault(); // prevent default form submission.
+        console.log(enteredValues)
+    }
 
-        // current is a property of the reference object that points to the actual DOM element.
-        const enteredEmail = email.current.value;
-        const enteredPassword = password.current.value;
-
-        console.log( enteredEmail, enteredPassword)
+    function handleInputChange(identifier,value) {
+        setEnteredValues(prevValues => {
+            return {
+                ...prevValues,
+                [identifier]: value
+            }
+        })
     }
 
     return (
@@ -25,14 +31,18 @@ export default function Login() {
                     <label htmlFor="email">Email</label>
                     <input id="email"
                            type="email"
-                           name="email" ref={email}/>{/* attach the reference object to the input element */}
+                           name="email"
+                           onChange={e=>handleInputChange('email', e.target.value)}
+                           value={enteredValues.email}/>
                 </div>
 
                 <div className="control no-margin">
                     <label htmlFor="password">Password</label>
                     <input id="password"
                            type="password"
-                           name="password" ref={password}/>
+                           name="password"
+                           onChange={e=>handleInputChange('password',e.target.value)}
+                           value={enteredValues.password}/>
                 </div>
             </div>
 
