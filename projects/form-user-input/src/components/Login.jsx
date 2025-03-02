@@ -12,7 +12,11 @@ export default function Login() {
         const enteredEmail = email.current.value;
         const enteredPassword = password.current.value;
 
-        console.log( enteredEmail, enteredPassword)
+        console.log( enteredEmail, enteredPassword);
+        // email.current.value = ''; // not recommended to change the value of the input element directly.
+        // password.current.value = '';
+
+        event.target.reset(); // reset the form.
     }
 
     return (
