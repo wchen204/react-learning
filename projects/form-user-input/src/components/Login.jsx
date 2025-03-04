@@ -1,6 +1,7 @@
-import {useRef} from "react";
+import {useRef, useState} from "react";
 
 export default function Login() {
+    const [emailIsInvalidate, setEmailIsInvalidate] = useState(false)
     // create a reference object.
     const email = useRef();
     const password = useRef();
@@ -16,6 +17,17 @@ export default function Login() {
         // email.current.value = ''; // not recommended to change the value of the input element directly.
         // password.current.value = '';
 
+
+        const emailIsValid = enteredEmail.includes('@');
+
+
+        if (!emailIsValid){
+            setEmailIsInvalidate(true)
+            return;
+        }
+
+        setEmailIsInvalidate(false)
+
         event.target.reset(); // reset the form.
     }
 
@@ -28,8 +40,11 @@ export default function Login() {
                     {/* htmlFor -> for attribute in html */}
                     <label htmlFor="email">Email</label>
                     <input id="email"
-                           type="email"
+                           type="text"
                            name="email" ref={email}/>{/* attach the reference object to the input element */}
+                    <div className="control-error">
+                        {emailIsInvalidate && <p>Please enter a valid email address.</p>}
+                    </div>
                 </div>
 
                 <div className="control no-margin">
