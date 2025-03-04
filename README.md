@@ -7,17 +7,21 @@ This repository tracks my learning progress as I take the course **React - The C
   - Focus on core React concepts, Next.js for server-side rendering, and Redux for state management.
 
 ## Current Learning Topics
-- **Working with Forms & User Input**: Currently learning how to handle forms and user input in React, including controlled and uncontrolled components, form submissions, validation, and managing form state.
+- **Handling Forms via Form Actions**: Currently learning how to handle forms using form actions in React, including form submissions, validation, and managing form state.
 
 ## Projects
-- No projects added yet. This section will be updated as I build mini-projects and practical applications throughout the course.
+- **Form User Input**: A project to practice handling forms and user input in React.
+  - Added login component with state management for form handling.
+  - Implemented form reset functionality for both state and ref approaches.
+  - Updated signup form to handle form data including checkboxes.
 
 ## Milestones
 - **Completed**: React basics — Components, Props, State, and Lifecycle
 - **Completed**: Building Custom React Hooks
-- **Currently learning**: Working with Forms & User Input
+- **Completed**: Working with Forms & User Input
+- **Currently learning**: Handling Forms via Form Actions
 
 ## Next Steps
-- Continue with the forms and user input section and build small examples.
+- Continue with the handling forms via form actions section and build small examples.
 - Start learning Redux and its integration with React.
 - Explore Next.js for full-stack development with React.
