@@ -1,4 +1,8 @@
+import {useState} from "react";
+
 export default function Signup() {
+
+    const [passwordsAreNotEqual, setPasswordsAreNotEqual] = useState(false)
 
 
     // use state and ref is not the best approach for this form.
@@ -13,6 +17,13 @@ export default function Signup() {
         const data = Object.fromEntries(formData.entries()); // convert the form data to an object.
         data.acquisition = acquisitionChannel; // add the acquisition channel to the data object.
         console.log(data)
+
+        if (data.password !== data['confirm-password']) { // dash is not allowed in the object key.
+            setPasswordsAreNotEqual(true);
+            return;
+        }
+
+        setPasswordsAreNotEqual(false);
 
         event.target.reset(); // reset the form.
     }
@@ -47,6 +58,9 @@ export default function Signup() {
                         name="confirm-password"
                         required
                     />
+                    <div className="control-error">
+                        {passwordsAreNotEqual && <p>Passwords do not match.</p>}
+                    </div>
                 </div>
             </div>
 
