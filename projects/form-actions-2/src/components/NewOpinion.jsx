@@ -1,35 +1,42 @@
 import {useActionState} from 'react';
-import {isNotEmpty} from "../../util/validation.js";
 
-function opinionFormAction(prevFormState, formData) {
-  const userName = formData.get('userName');
-  const title = formData.get('title');
-  const body = formData.get('body');
-
-  let errors=[]
-  if (!isNotEmpty(userName)) {
-    errors.push('Please enter your name');
-  }
-  if (!isNotEmpty(title)) {
-    errors.push('Please enter a title');
-  }
-  if (!isNotEmpty(body)) {
-    errors.push('Please enter your opinion');
-  }
-
-  if (errors.length > 0) {
-    return {
-      errors,
-      enteredValues: {
-        userName,
-        title,
-        body
-      }
-    }
-  }
-}
 
 export function NewOpinion() {
+
+
+
+  function opinionFormAction(prevFormState, formData) {
+    const userName = formData.get('userName');
+    const title = formData.get('title');
+    const body = formData.get('body');
+
+    let errors=[]
+
+    if (title.trim().length<5) {
+      errors.push('Title must be at least 5 characters long.');
+    }
+    if (body.trim().length<10 || body.trim().length>300) {
+      errors.push('Opinion must be between 10 and 300 characters long.');
+    }
+    if (!userName.trim()) {
+      errors.push('Please enter your name.');
+    }
+
+    if (errors.length > 0) {
+      return {
+        errors,
+        enteredValues: {
+          userName,
+          title,
+          body
+        }
+      }
+    }
+
+    //submit the form
+
+    return {errors: null};
+  }
 
 
   const [formState,formAction] = useActionState(opinionFormAction,{
