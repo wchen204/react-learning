@@ -1,11 +1,15 @@
-import {useActionState} from 'react';
+import {use, useActionState} from 'react';
+import {OpinionsContext} from "../store/opinions-context.jsx";
 
 
 export function NewOpinion() {
 
 
 
-  function opinionFormAction(prevFormState, formData) {
+  const {addOpinion} = use(OpinionsContext);// use() added in react 19
+
+
+  async function opinionFormAction(prevFormState, formData) {
     const userName = formData.get('userName');
     const title = formData.get('title');
     const body = formData.get('body');
@@ -34,6 +38,11 @@ export function NewOpinion() {
     }
 
     //submit the form
+    await addOpinion({
+        userName,
+        title,
+        body
+    })
 
     return {errors: null};
   }
